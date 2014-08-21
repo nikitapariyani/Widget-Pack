@@ -20,11 +20,10 @@ class wp_recent_posts extends WP_Widget {
     public function widget( $args, $instance ) {
         $title = apply_filters( 'widget_title', $instance['title'] );
         $post_count = $instance['post_count'];
-        // before and after widget arguments are defined by themes
-        echo $args['before_widget'];
+        
         echo '<div id="recent-posts">';
         if ( ! empty( $title ) )
-            echo $args['before_title'] . $title  . $args['after_title'];
+            echo "<h3 class='widget-title'>" . $title  . "</h3>";
         
         $args = new WP_Query(
             array(
@@ -76,7 +75,6 @@ class wp_recent_posts extends WP_Widget {
         endwhile;
         echo "</ul>";        
         echo '</div>';
-        echo $args['after_widget'];
     }
 		
     public function form( $instance ) {
