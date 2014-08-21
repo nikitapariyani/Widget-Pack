@@ -41,29 +41,34 @@ class wp_recent_posts extends WP_Widget {
             echo'<li class="widget-list-item">';
             echo '<h4><a href="'.get_permalink($post->ID).'">'.the_title('', '', false).'</a></h4>';
             if($instance['show_image']){
-                echo "<br>";
+                echo '<div class="featured_image">';
                 wp_featured_image();
+                echo '</div>';
             }
-            echo '<div class="widget-content">';
             if($instance['show_date']){
+                echo "<p>";
                 wp_post_date();
+                echo "</p>";
             }
             if($instance['show_author']){
-                echo "<br>";
+                echo "<p>";
                 wp_post_author();
+                echo "</p>";
             }
             if($instance['show_category']){
-                echo "<br>";
+                echo "<p>";
                 wp_post_category();
+                echo "</p>";
             }
-            echo '</div>';
             if($instance['show_comment_number']){
-                echo "<br>";
+                echo "<p>";
                 wp_comment_number();
+                echo "</p>";
             }
             if($instance['show_excerpt']){
-                echo "<br>";
+                echo "<p>";
                 wp_post_excerpt();
+                echo "</p>";
             }
             echo "</li>";
         endwhile;
