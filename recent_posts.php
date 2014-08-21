@@ -42,28 +42,28 @@ class wp_recent_posts extends WP_Widget {
             echo '<h4><a href="'.get_permalink($post->ID).'">'.the_title('', '', false).'</a></h4>';
             if($instance['show_image']){
                 echo "<br>";
-                display_featured_image();
+                wp_featured_image();
             }
             echo '<div class="widget-content">';
             if($instance['show_date']){
-                display_post_date();
+                wp_post_date();
             }
             if($instance['show_author']){
                 echo "<br>";
-                display_post_author();
+                wp_post_author();
             }
             if($instance['show_category']){
                 echo "<br>";
-                display_post_category();
+                wp_post_category();
             }
             echo '</div>';
             if($instance['show_comment_number']){
                 echo "<br>";
-                display_comment_number();
+                wp_comment_number();
             }
             if($instance['show_excerpt']){
                 echo "<br>";
-                display_post_excerpt();
+                wp_post_excerpt();
             }
             echo "</li>";
         endwhile;
