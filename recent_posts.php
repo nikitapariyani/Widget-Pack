@@ -24,7 +24,7 @@ class wp_recent_posts extends WP_Widget {
         echo $args['before_widget'];
         echo '<div id="recent-posts">';
         if ( ! empty( $title ) )
-            echo $args['before_title'] . '<h3 class="widget-title">'. $title . '</h3>' . $args['after_title'];
+            echo $args['before_title'] . $title  . $args['after_title'];
         
         $args = new WP_Query(
             array(
@@ -40,6 +40,7 @@ class wp_recent_posts extends WP_Widget {
         while ( $args->have_posts() ) : $args->the_post();
             echo'<li class="widget-list-item">';
             echo '<h4><a href="'.get_permalink($post->ID).'">'.the_title('', '', false).'</a></h4>';
+            echo '<div class="widget-content">';
             if($instance['show_image']){
                 echo '<div class="featured_image">';
                 wp_featured_image();
@@ -60,6 +61,7 @@ class wp_recent_posts extends WP_Widget {
                 wp_post_category();
                 echo "</p>";
             }
+            echo '</div>';
             if($instance['show_comment_number']){
                 echo "<p>";
                 wp_comment_number();
