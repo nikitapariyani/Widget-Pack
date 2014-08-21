@@ -52,7 +52,6 @@ function wp_post_author(){
 }
 function wp_post_category(){
     echo "<strong>Category:</strong>";
-    echo "<br>";
     echo get_the_category_list();
 }
 function wp_comment_number() {
@@ -62,7 +61,6 @@ function wp_comment_number() {
 }
 function wp_post_excerpt(){
     echo "<strong>Excerpt:</strong>";
-    echo "<br>";
     the_excerpt();
 }
 function wp_excerpt_length( $length ) {
